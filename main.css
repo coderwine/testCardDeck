@@ -1,0 +1,82 @@
+html body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    height: 10vh;
+    width: 100vw;
+}
+
+nav button {
+    margin: 10px;
+    height: 50px;
+    width: 100px;
+    color: white;
+    border-radius: 10px;
+}
+
+.redDeck {
+    background-color: red;
+}
+
+.redDeck:hover {
+    background-color: whitesmoke;
+    color: red;
+}
+
+.blackDeck {
+    background-color: black;
+}
+
+.blackDeck:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+/* Deck Display */
+#display-card {
+    width: 250px;
+    height: 350px;
+    border: solid black 3px ;
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+}
+
+#display-card div>* {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+#display-card .suit {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    height: 10%;
+}
+
+#display-card #suiteValue {
+    width: 100%;
+    height: 80%;
+}
+
+#display-card #suiteValue>* {
+    font-size: 15rem;
+}
+
+#display-card #cardBtm {
+    margin-left: 75%
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <button onclick="shuffleDeck(hearts, discardA, 'H')" id="deckA" class="redDeck">Hearts</button>
+        <button onclick="shuffleDeck(spades, discardB, 'S')" id="deckB" class="blackDeck">Spades</button>
+        <button onclick="shuffleDeck(diamonds, discardC, 'D')" id="deckC" class="redDeck">Diamonds</button>
+        <button onclick="shuffleDeck(clubs, discardD, 'C')" id="deckD" class="blackDeck">Clubs</button>
+    </nav>
+
+    <div id="display-card">
+        <div class="suit" id="cardTop">
+            <img src="" alt="">
+        </div>
+        <div id="suiteValue">
+            <h1></h1>
+        </div>
+        <div class="suit" id="cardBtm">
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <div class="cardsRemaining">
+        <h2>Number of Cards Remaining:</h2>
+        <ul>
+            <li class="decks">Hearts:</li>
+            <li class="decks">Spades:</li>
+            <li class="decks">Diamonds:</li>
+            <li class="decks">Clubs:</li>
+        </ul>
+    </div>
+
+    <script src="./deckSample.js"></script>
+</body>
+</html>
