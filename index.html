@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
-    <title>Document</title>
+    <title>Card Sort</title>
 </head>
 <body>
     <nav>
@@ -28,13 +28,25 @@
     </div>
 
     <div class="cardsRemaining">
-        <h2>Number of Cards Remaining:</h2>
-        <ul>
-            <li class="decks">Hearts:</li>
-            <li class="decks">Spades:</li>
-            <li class="decks">Diamonds:</li>
-            <li class="decks">Clubs:</li>
-        </ul>
+        <div>
+            <h2>Cards Remaining:</h2>
+            <ul id="deckGroup">
+                <li class="decks">Hearts:</li>
+                <li class="decks">Spades:</li>
+                <li class="decks">Diamonds:</li>
+                <li class="decks">Clubs:</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Used Cards:</h2>
+                <div id="used-cards">
+                    <!-- <div></div> -->
+                    <!-- <li><img src="./assets/H.png" alt="hearts"></li>
+                    <li><img src="./assets/S.png" alt="spades"></li>
+                    <li><img src="./assets/D.png" alt="diamond"></li>
+                    <li><img src="./assets/C.png" alt="club"></li> -->
+                </div>
+        </div>
     </div>
 
     <script src="./deckSample.js"></script>
