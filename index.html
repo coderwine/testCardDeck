@@ -9,12 +9,25 @@
 </head>
 <body>
     <nav>
-        <button onclick="shuffleDeck(hearts, discardA, 'H')" id="deckA" class="redDeck">Hearts</button>
-        <button onclick="shuffleDeck(spades, discardB, 'S')" id="deckB" class="blackDeck">Spades</button>
-        <button onclick="shuffleDeck(diamonds, discardC, 'D')" id="deckC" class="redDeck">Diamonds</button>
-        <button onclick="shuffleDeck(clubs, discardD, 'C')" id="deckD" class="blackDeck">Clubs</button>
+        <button onclick="shuffleDeck(hearts, discardA, 'H', 'deckA')" id="deckA" class="redDeck">Hearts</button>
+        <button onclick="shuffleDeck(spades, discardB, 'S', 'deckB')" id="deckB" class="blackDeck">Spades</button>
+        <button onclick="shuffleDeck(diamonds, discardC, 'D', 'deckC')" id="deckC" class="redDeck">Diamonds</button>
+        <button onclick="shuffleDeck(clubs, discardD, 'C', 'deckD')" id="deckD" class="blackDeck">Clubs</button>
     </nav>
 
+    <div id="dashboard">
+
+    <div id="remaining-cards">
+        <h2>Cards Remaining:</h2>
+        <ul id="deckGroup">
+            <li class="decks"></li>
+            <li class="decks"></li>
+            <li class="decks"></li>
+            <li class="decks"></li>
+            <li class="decks"></li>
+        </ul>
+    </div>
+        
     <div id="display-card">
         <div class="suit" id="cardTop">
             <img src="" alt="">
@@ -27,26 +40,11 @@
         </div>
     </div>
 
-    <div class="cardsRemaining">
-        <div>
-            <h2>Cards Remaining:</h2>
-            <ul id="deckGroup">
-                <li class="decks">Hearts:</li>
-                <li class="decks">Spades:</li>
-                <li class="decks">Diamonds:</li>
-                <li class="decks">Clubs:</li>
-            </ul>
-        </div>
-        <div>
+        <div id="discarded-cards">
             <h2>Used Cards:</h2>
-                <div id="used-cards">
-                    <!-- <div></div> -->
-                    <!-- <li><img src="./assets/H.png" alt="hearts"></li>
-                    <li><img src="./assets/S.png" alt="spades"></li>
-                    <li><img src="./assets/D.png" alt="diamond"></li>
-                    <li><img src="./assets/C.png" alt="club"></li> -->
-                </div>
+            <div id="used-cards"></div>
         </div>
+
     </div>
 
     <script src="./deckSample.js"></script>

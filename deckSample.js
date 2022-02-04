@@ -28,8 +28,6 @@ let discardD = [];
 
 let playerCard;
 let usedCardPile = [];
-// let usedCardPileSuit = [];
-// let usedCardObj = {}
 class usedCardObj {
     constructor(value, suit) {
         this.value = value,
@@ -40,36 +38,43 @@ class usedCardObj {
 //! Logic
 // Shuffling
 
-const shuffleDeck = (deck, discard, suit) => {
+const shuffleDeck = (deck, discard, suit, id) => {
     
-    for(i=0; i<deck.length; i++){
+    if(deck.length === 0) {
+        emptyDeck(id);
+    } else {
+
+        for(i=0; i<deck.length; i++){
+            let pos = Math.floor(Math.random() * deck.length);
+            let hold = deck[pos];
+
+            deck.splice(pos,1);
+            deck.unshift(hold);
+        }
+
         let pos = Math.floor(Math.random() * deck.length);
-        let hold = deck[pos];
-
+        let holdDiscard = deck[pos];
         deck.splice(pos,1);
-        deck.unshift(hold);
+        discard.push(holdDiscard);
+
+        playerCard = discard[discard.length-1];
+        showCard(playerCard, suit);
+
+        let cardObj = new usedCardObj(holdDiscard, suit);
+        usedCardPile.push(cardObj)
+
+        if(deck.length === 0) {
+            emptyDeck(id);
+        }
     }
-
-    let pos = Math.floor(Math.random() * deck.length);
-    let holdDiscard = deck[pos];
-    deck.splice(pos,1);
-    discard.push(holdDiscard);
-    // usedCardPile.push(holdDiscard);
-    // usedCardPileSuit.push(suit);
-    // console.log(usedCardPile)
-
-    playerCard = discard[discard.length-1];
-    showCard(playerCard, discard, suit);
-
-    let cardObj = new usedCardObj(holdDiscard, suit);
-    console.log(cardObj);
-    usedCardPile.push(cardObj)
 
 }
 
 //! Display
-function showCard(card, discard, suit) {
-    // console.log('SHOWCARD', card, suit);
+function showCard(card, suit) {
+    //* Single Card 
+    const mainCard = document.getElementById('display-card');
+    mainCard.style = 'background-image: none;';
 
     switch(suit) {
         case 'H':
@@ -104,60 +109,67 @@ function showCard(card, discard, suit) {
 
     suiteValue[1].innerText = card;
 
-    // Remaining
+    //* Remaining
+    let totalRemainingCards = hearts.length+spades.length+diamonds.length+clubs.length;
+
     deckGroup[0].innerText = `Hearts: ${hearts.length}`;
     deckGroup[1].innerText = `Spades: ${spades.length}`;
     deckGroup[2].innerText = `Diamonds: ${diamonds.length}`;
     deckGroup[3].innerText = `Clubs: ${clubs.length}`;
-    console.log('CHECK USED CARDS', usedCardPile.length)
-    console.log('CHECK USED CARDS', usedCardPile[0])
+    deckGroup[4].innerText = `Total: ${totalRemainingCards}`;
+
+    //* Used Cards 
     if(usedCardPile.length > 0) {
         while(usedCards.firstChild) {
-            // console.log(usedCards.children)
             usedCards.removeChild(usedCards.firstChild)
         }
-        // console.log(usedCards)
 
-        // console.log(discard)
-        console.log('USEDCARDS',usedCardPile)
         for(i=0; i<usedCardPile.length; i++) {
+            const card = usedCardPile[i];
 
             const div = document.createElement('div');
             const p = document.createElement('p');
             const img = document.createElement('img');
-            // p.innerText = discard[i];
-            p.innerText = usedCardPile[i].value;
-            // img.src = `./assets/${suit}.png`;
-            img.src = `./assets/${usedCardPile[i].suit}.png`;
+            p.innerText = card.value;
+            img.src = `./assets/${card.suit}.png`;
+            div.setAttribute('id', `pile-${i}`);
+            div.setAttribute('onclick', `returnCard(${i},'${card.suit}')`)
             
             div.appendChild(p);
             div.appendChild(img);
             usedCards.appendChild(div);
+
         }
+        console.log(usedCards.children);
     }
 
-    // if(discardB.length > 0) {
-    //     for(i=0; i<discardB.length; i++) {
-    //         const p = document.createElement('p');
-    //         p.innerText = discardB[i];
-    //         usedCards.appendChild(p);
-    //     }
-    // }
-
-    // if(discardC.length > 0) {
-    //     for(i=0; i<discardC.length; i++) {
-    //         const p = document.createElement('p');
-    //         p.innerText = discardC[i];
-    //         usedCards.appendChild(p);
-    //     }
-    // }
-
-    // if(discardD.length > 0) {
-    //     for(i=0; i<discardD.length; i++) {
-    //         const p = document.createElement('p');
-    //         p.innerText = discardD[i];
-    //         usedCards.appendChild(p);
-    //     }
-    // }
 }
+
+//! Empty Deck
+function emptyDeck(id) {
+    let selectedBtn = document.getElementById(id);
+    selectedBtn.style = 'background-color: grey; color: black;';
+}
+
+//! Returning Cards
+// function returnCard(pos, suit) {
+//     console.log('ACCEPTED', pos, suit)
+//     console.log(usedCardPile)
+
+//     switch(suit) {
+//         case 'H':
+//             break;
+//         case 'S':
+//             break;
+//         case 'D':
+//             break;
+//         default:
+
+//     }
+
+//     usedCardPile.splice(pos,1);
+
+// }
+
+
 
