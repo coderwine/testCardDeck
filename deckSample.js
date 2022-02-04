@@ -29,7 +29,8 @@ let discardD = [];
 let playerCard;
 let usedCardPile = [];
 class usedCardObj {
-    constructor(value, suit) {
+    constructor(key,value, suit) {
+        this.key = key,
         this.value = value,
         this.suit = suit
     }
@@ -54,13 +55,15 @@ const shuffleDeck = (deck, discard, suit, id) => {
 
         let pos = Math.floor(Math.random() * deck.length);
         let holdDiscard = deck[pos];
+        let cardKey = holdDiscard + suit;
+
         deck.splice(pos,1);
         discard.push(holdDiscard);
 
         playerCard = discard[discard.length-1];
         showCard(playerCard, suit);
 
-        let cardObj = new usedCardObj(holdDiscard, suit);
+        let cardObj = new usedCardObj(cardKey,holdDiscard, suit);
         usedCardPile.push(cardObj)
 
         if(deck.length === 0) {
@@ -132,15 +135,14 @@ function showCard(card, suit) {
             const img = document.createElement('img');
             p.innerText = card.value;
             img.src = `./assets/${card.suit}.png`;
-            div.setAttribute('id', `pile-${i}`);
-            div.setAttribute('onclick', `returnCard(${i},'${card.suit}')`)
+            // div.setAttribute('id', `${card.value}`);
+            div.setAttribute('onclick', `returnCard(${card.key})`)
             
             div.appendChild(p);
             div.appendChild(img);
             usedCards.appendChild(div);
 
         }
-        console.log(usedCards.children);
     }
 
 }
@@ -152,24 +154,29 @@ function emptyDeck(id) {
 }
 
 //! Returning Cards
-// function returnCard(pos, suit) {
-//     console.log('ACCEPTED', pos, suit)
-//     console.log(usedCardPile)
+function returnCard(key, suit) {
+    console.log(key, typeof key);
+    // console.log('ACCEPTED', key)
+    // console.log(usedCardPile);
+    
+    // let find = usedCardPile.indexOf(key);
+    // let find = usedCardPile.some(x => x.key == key);
+    // console.log(find);
 
-//     switch(suit) {
-//         case 'H':
-//             break;
-//         case 'S':
-//             break;
-//         case 'D':
-//             break;
-//         default:
+    // switch(suit) {
+    //     case 'H':
+    //         break;
+    //     case 'S':
+    //         break;
+    //     case 'D':
+    //         break;
+    //     default:
 
-//     }
+    // }
 
-//     usedCardPile.splice(pos,1);
+    // usedCardPile.splice(pos,1);
 
-// }
+}
 
 
 
