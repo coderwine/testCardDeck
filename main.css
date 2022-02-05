@@ -48,6 +48,7 @@ nav button {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     width: 100vw;
     height: 90vh;
 }
@@ -88,12 +89,12 @@ nav button {
     height: 10%;
 }
 
-#display-card #suiteValue {
+#display-card #suitValue {
     width: 100%;
     height: 80%;
 }
 
-#display-card #suiteValue>* {
+#display-card #suitValue>* {
     font-size: 15rem;
 }
 
@@ -135,4 +136,20 @@ nav button {
 .used-cards, div p {
     font-size: 25px;
     margin: 0;
+}
+
+/*? Footer */
+footer {
+    width: 100vw;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    background-color: grey;
+    text-align: center;
+    color: white;
+    font-size: 14pt;
+}
+
+a:visited {
+    color: inherit;
 }

@@ -1,24 +1,30 @@
 # Reason for this Build
-**deckSample.js** is meant to take three different suits in a deck, shuffle each, and toggle between each one through one session. Users should be able to select a deck to choose from and reveal a new card throughout each "turn".
+This is meant to be both a practice session of thought for a larger project in mind, as well as turn into a lesson plan for teaching.
+
+This was initially built without any design concept prior. The results of this means that the code can certainly be cleaned up and possibly used in a much more structured way; however, I wanted to work and refactor throughout the process to simply practice the puzzle of logic as a whole. I believe this was very helpful. I think I will keep this format simply to highlight my process of thought as a teaching tool.
+
+## Concept
+**deckSample.js** is meant to take four different suits in a deck, shuffle each, and toggle between each one through one session. Users should be able to select a deck to choose from and reveal a new card throughout each "turn".
+
+Users will then be able to see how many cards are left in the deck, both as individual suits and as a total deck of 52 cards.
+
+A pile of discarded cards will be displayed, indicating what has been randomly selected.
+
+Users will be able to selected used cards and return them back to their respective decks. This then updates the values associated to each suit to indicate the current card count.
 
 ## The Process
 Users will need to:
 - Select from a deck of their choosing.
-  - Display the revealed card and have it held in a discard pile.
-    - May want to include an option to return card to deck
-  - This will reduce the amount of cards remaining in the original deck.
-  - Users can see the count of cards remaining.
+  - Display the revealed card.
+  - Place card in a used card pile when a new card is pulled.
+  - Note total amount of cards remaining.
+  - Click on used cards to return.
+    - Counts will need to be re-evaluated.
 
 ## As it is Currently:
-- Users can select a card from each suit. 
-- Each time a user picks a card, the array of cards are shuffled to randomly select a card. 
-- Displayed is their result. 
-- A count of cards remaining displays.
-- Once the user selects a second card from a suit, the previous card value/suit will be placed in a **used cards** pile.
-- When the suit has no more cards to display, the button will fade out. 
+- Functionality is completed. 
 
 ## What is Currently Does Not Do:
-- This isn't mobile responsive.
-  - The goal of this project was to practice parsing through a set of information and display it in different ways.
-  - I may work on making this responsive only for viewing purposes/ease.
-- Considering on the process of returning cards to their respective decks.
+- This is slightly mobile responsive.
+  - The focus was not to make this the prettiest design.
+- Update final notes throughout the build to highlight overall thought process on logic.
